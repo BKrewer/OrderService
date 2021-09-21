@@ -1,6 +1,8 @@
-﻿namespace OrderService.Domain.Entities
+﻿using OrderService.Shared.Entities;
+
+namespace OrderService.Domain.Entities
 {
-    public class Product
+    public class Product : Entity
     {
         public Product(string name, string description, decimal price, int quantityInStock, string image)
         {
@@ -16,7 +18,10 @@
         public string Description { get; private set; }
         public decimal Price { get; private set; }
         public int QuantityInStock { get; private set; }
-
         public string Image { get; private set; }
+
+        public int CategoryId { get; private set; }
+        public Category Category { get; private set; }
+
     }
 }

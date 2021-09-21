@@ -1,19 +1,19 @@
-﻿namespace OrderService.Domain.Entities
+﻿using OrderService.Domain.ValueObjects;
+using OrderService.Shared.Entities;
+
+namespace OrderService.Domain.Entities
 {
-    public class Customer
+    public class Customer : Entity
     {
-        public Customer(string firstName, string lastName, string email, string document)
+        public Customer(Name name, Email email, Document document)
         {
-            FirstName = firstName;
-            LastName = lastName;
+            Name = name;
             Email = email;
             Document = document;
         }
 
-        public int Id { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string Email { get; private set; }
-        public string Document { get; private set; }
+        public Name Name { get; private set; }
+        public Email Email { get; private set; }
+        public Document Document { get; private set; }
     }
 }

@@ -21,5 +21,9 @@ namespace OrderService.Domain.Entities
         public int CategoryId { get; private set; }
         public Category Category { get; private set; }
 
+        public void UpdateQuantityOnHand(int qtyToSubtract)
+        {
+            QuantityInStock -= qtyToSubtract;
+        }
     }
 }

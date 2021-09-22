@@ -4,11 +4,7 @@ namespace OrderService.Domain.Entities
 {
     public class OrderItem : Entity
     {
-        public OrderItem(int quantity, decimal price)
-        {
-            Quantity = quantity;
-            Price = price;
-        }
+        public OrderItem() { }
 
         public int Quantity { get; private set; }
         public decimal Price { get; private set; }
@@ -18,6 +14,16 @@ namespace OrderService.Domain.Entities
 
         public int ProductId { get; private set; }
         public Product Product { get; private set; }
+
+        public void AddProduct(Product product, int quantity, decimal price)
+        {
+            ProductId = product.Id;
+            Product = product;
+            Quantity = quantity;
+            Price = price;
+
+            Product.UpdateQuantityOnHand(quantity);
+        }
 
     }
 }

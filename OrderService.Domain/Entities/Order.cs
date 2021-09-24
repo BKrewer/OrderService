@@ -1,4 +1,5 @@
 ﻿using OrderService.Domain.Enums;
+using OrderService.Domain.Validators;
 using OrderService.Shared.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace OrderService.Domain.Entities
     public class Order : Entity
     {
         private IList<OrderItem> _orderItems;
+        private OrderValidator _validator = new();
 
         public Order(IList<OrderItem> orderItems, Customer customer)
         {
@@ -57,6 +59,11 @@ namespace OrderService.Domain.Entities
         public void MarkAsCanceled()
         {
             Status = EOrderStatus.Canceled;
+        }
+
+        public bool IsValid()
+        {
+            return _validator.Validate(this).IsValid;
         }
     }
 }

@@ -1,9 +1,12 @@
-﻿using OrderService.Shared.Entities;
+﻿using OrderService.Domain.Validators;
+using OrderService.Shared.Entities;
 
 namespace OrderService.Domain.Entities
 {
     public class OrderItem : Entity
     {
+        private readonly OrderItemValidator _validator = new();
+
         public OrderItem() { }
 
         public int Quantity { get; private set; }
@@ -25,5 +28,9 @@ namespace OrderService.Domain.Entities
             Product.UpdateQuantityOnHand(quantity);
         }
 
+        public bool IsValid()
+        {
+            return _validator.Validate(this).IsValid;
+        }
     }
 }

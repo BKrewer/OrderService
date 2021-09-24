@@ -4,14 +4,16 @@ namespace OrderService.Domain.Entities
 {
     public class Product : Entity
     {
-        public Product(string name, string description, decimal price, int quantityInStock, string image)
+        public Product(string name, string description, decimal price, int quantityInStock, string image, int categoryId)
         {
             Name = name;
             Description = description;
             Price = price;
             QuantityInStock = quantityInStock;
             Image = image;
+            CategoryId = categoryId;
         }
+
         public string Name { get; private set; }
         public string Description { get; private set; }
         public decimal Price { get; private set; }

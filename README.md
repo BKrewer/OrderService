@@ -6,3 +6,4 @@ O sistema consiste em um serviço de criação de ordens, projetado como exemplo
 
 - .NET 5
 - FluentValidation
+- xUnit

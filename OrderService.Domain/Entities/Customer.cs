@@ -17,5 +17,10 @@ namespace OrderService.Domain.Entities
         public Name Name { get; private set; }
         public Email Email { get; private set; }
         public Document Document { get; private set; }
+
+        public bool IsValid()
+        {
+            return Name.IsValid() && Email.IsValid() && Document.IsValid();
+        }
     }
 }

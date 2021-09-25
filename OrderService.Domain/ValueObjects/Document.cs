@@ -5,8 +5,6 @@ namespace OrderService.Domain.ValueObjects
 {
     public class Document
     {
-        private readonly DocumentValidator _validator = new();
-
         public Document(string number, EDocumentType type)
         {
             Number = number;
@@ -18,7 +16,15 @@ namespace OrderService.Domain.ValueObjects
 
         public bool IsValid()
         {
-            return _validator.Validate(this).IsValid;
+            int length = Number.Length;
+
+            if (Type == EDocumentType.CPF && length == 11)
+                return true;
+
+            if (Type == EDocumentType.CNPJ && length == 14)
+                return true;
+
+            return false;
         }
     }
 }

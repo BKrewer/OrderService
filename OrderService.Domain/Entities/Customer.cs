@@ -1,7 +1,5 @@
 ﻿using OrderService.Domain.ValueObjects;
 using OrderService.Shared.Entities;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace OrderService.Domain.Entities
 {

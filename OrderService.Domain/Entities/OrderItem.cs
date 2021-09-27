@@ -20,6 +20,10 @@ namespace OrderService.Domain.Entities
 
         public void AddProduct(Product product, int quantity, decimal price)
         {
+
+            if (product.QuantityInStock < quantity || !product.IsValid())
+                return;
+
             ProductId = product.Id;
             Product = product;
             Quantity = quantity;

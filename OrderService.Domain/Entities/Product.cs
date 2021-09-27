@@ -28,6 +28,9 @@ namespace OrderService.Domain.Entities
 
         public void UpdateQuantityOnHand(int qtyToSubtract)
         {
+            if (QuantityInStock < qtyToSubtract)
+                return;
+
             QuantityInStock -= qtyToSubtract;
         }
 

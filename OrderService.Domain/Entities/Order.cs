@@ -43,7 +43,10 @@ namespace OrderService.Domain.Entities
 
         public void AddItem(OrderItem orderItem)
         {
-            _orderItems.Add(orderItem);
+            if(orderItem.IsValid())
+            {
+                _orderItems.Add(orderItem);
+            }
         }
 
         public void MarkAsPaid()

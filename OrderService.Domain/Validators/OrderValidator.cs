@@ -10,6 +10,7 @@ namespace OrderService.Domain.Validators
             RuleFor(order => order.CreatedDate).NotNull().NotEmpty();
             RuleFor(order => order.Status).NotEmpty().NotNull();
             RuleFor(order => order.Customer).NotEmpty().NotNull();
+            RuleFor(order => order.OrderItems).NotEmpty();
         }
     }
 }

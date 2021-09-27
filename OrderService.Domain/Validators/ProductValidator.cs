@@ -11,7 +11,7 @@ namespace OrderService.Domain.Validators
             RuleFor(product => product.Description).MaximumLength(300);
             RuleFor(product => product.Price).NotNull().NotEmpty().GreaterThanOrEqualTo(0);
             RuleFor(product => product.QuantityInStock).NotNull().NotEmpty().GreaterThanOrEqualTo(0);
-            RuleFor(product => product.CategoryId).NotNull().NotEmpty();
+            RuleFor(product => product.CategoryId).NotNull();
         }
     }
 }

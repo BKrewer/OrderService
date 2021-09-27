@@ -9,8 +9,7 @@ namespace OrderService.Domain.Validators
         {
             RuleFor(item => item.Quantity).NotNull().NotEmpty().GreaterThan(0);
             RuleFor(item => item.Price).NotNull().NotEmpty().GreaterThan(0);
-            RuleFor(item => item.OrderId).NotNull().NotEmpty();
-            RuleFor(item => item.ProductId).NotNull().NotEmpty();
+            RuleFor(item => item.ProductId).NotNull();
         }
     }
 }

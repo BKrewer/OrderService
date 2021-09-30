@@ -11,11 +11,13 @@ namespace OrderService.Domain.Handlers
     {
         private readonly ICustomerRepository _customer;
         private readonly IProductRepository _product;
+        private readonly IOrderRepository _order;
 
-        public OrderHandler(ICustomerRepository customer, IProductRepository product)
+        public OrderHandler(ICustomerRepository customer, IProductRepository product, IOrderRepository order)
         {
             _customer = customer;
             _product = product;
+            _order = order;
         }
 
         public ICommandResult Handle(CreateOrderCommand command)
@@ -44,6 +46,8 @@ namespace OrderService.Domain.Handlers
             {
                 return new CommandResult(false, "Não foi possível criar a ordem");
             }
+
+            _order.Save(order);
 
             return new CommandResult(true, "Ordem criada com sucesso!");
         }

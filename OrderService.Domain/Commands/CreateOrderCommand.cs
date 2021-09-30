@@ -6,6 +6,6 @@ namespace OrderService.Domain.Commands
     public class CreateOrderCommand : ICommand
     {
         public int Customer { get; set; }
-        public IEnumerable<CreateOrderItemCommand> OrderItems { get; set; }
+        public IList<CreateOrderItemCommand> OrderItems { get; set; }
     }
 }

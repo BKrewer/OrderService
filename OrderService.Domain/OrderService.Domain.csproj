@@ -12,8 +12,4 @@
     <ProjectReference Include="..\OrderService.Shared\OrderService.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Handlers\" />
-  </ItemGroup>
-
 </Project>
